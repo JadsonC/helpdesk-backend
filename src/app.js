@@ -9,7 +9,9 @@ import { errorHandler } from './middlewares/errorHandler.js'
 const app = express()
 
 app.use(express.json())
-app.use(cors()) //libera o acesso ao frontend
+app.use(cors({
+    origin: 'helpdesk-frontend-n1oqh5yw7-oxetech.vercel.app'
+})) //libera o acesso ao frontend
 app.use(morgan('dev')); //registra os logs
 
 app.use('/auth', authRoutes);
@@ -18,7 +20,7 @@ app.use('/categorias', categoriaRoutes);
 
 app.use((req, res) => {
     res.status(404).json({
-        erro : 'Rota não encontrada'
+        erro: 'Rota não encontrada'
     })
 })
 
