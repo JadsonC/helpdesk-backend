@@ -10,7 +10,7 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: 'helpdesk-frontend-n1oqh5yw7-oxetech.vercel.app'
+    origin: 'https://helpdesk-frontend-gamma.vercel.app'
 })) //libera o acesso ao frontend
 app.use(morgan('dev')); //registra os logs
 
