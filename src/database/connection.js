@@ -9,6 +9,8 @@ const pool = new Pool({
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
+    ssl: process.env.NODE_ENV === 'production'
+        ? { rejectUnauthorized: false} : false
 })
 
 pool.query('SELECT NOW()').then(res => console.log('Conectado ao PostgreSQL em:', res.rows[0].now)).catch(err => 
